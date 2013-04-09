@@ -1,0 +1,28 @@
+<br><br><div class="container">
+  <%= form_tag(:action => "new", :method=>"POST",:class => "form-horizontal", :validate=>true) do  %>
+  <div class="row">
+    <div class="span4 offset4 well">
+      <legend>Registrate!</legend>
+
+        <input type="text" id="username" class="span4" name="username" placeholder="correo uniandes">
+        <input type="password" id="password" class="span4" name="password" placeholder="Password (NO tiene que ser el de uniandes)">
+        <br>Programa universitario<select id="programa" name="programa" class="span3">
+            <option value ="Ing. Sistemas">Ing. de Sistemas</option>
+            <option value ="Ing. Industrial">Ing. Industrial</option>
+            <option value ="Ing. Eletrica/Electronica" selected>Ing. Electrica/Electronica</option>
+            <option value ="Ing. Civil" selected>Ing. Civil</option>
+            <option value ="Ing. Mecanica" selected>Ing. Mecanica</option>
+            <option value ="Administracion de empresas" selected>Administracion de empresas</option>
+            <option value ="Diseño" selected>Diseño</option>
+          </select><br><br>
+        <input type="number" id="codigo" class="span3" name="codigo" placeholder="Codigo de estudiante">
+        <br><br>En que etapa estas actualmente? <select id="estado" name="estado" class="span3">
+        <option value ="Quiero emprender!">Quiero emprender!</option>
+        <option value ="Tengo una idea de negocio">Tengo una idea de negocio</option>
+        <option value ="Empresario" selected>Ya tengo una empresa</option>
+      </select>
+        <%= submit_tag "Registrar", :class=>"btn btn-info btn-block"%>
+    </div>
+  </div>
+  <% end %>
+</div>

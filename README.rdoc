@@ -1,0 +1,60 @@
+== ANEU
+
+Este es el proyecto de la pagina web del grupo ANEU de la Universidad de Los Andes.
+
+Realizado como proyecto de ACM Uniandes. 
+Desarrollado por José Striedinger y Fernando Hurtado.
+
+
+== INDICACIONES
+
+1. ANEU (Home)
+2. Organizacion
+	a. Equipo (miembros Admin) 
+		*Foto *Nombre *Cargo *Correo *Bio
+	b. Contacto  
+		*Correo
+		*horario de atencion 
+		*Redes sociales (Facebook, Twitter, Linkedin, Google+, YouTube)
+	c. Reclutamiento 
+		*Nombre
+		*carrera
+		*semestre
+		*area de interes (lista de opciones por definir)
+		*comentarios (max 150)
+3. Agenda (Calendario)
+
+4. Proyectos
+	a. Concurso Modelos de Negocio
+	b. Lideres del pensamiento emprendedor
+5. Link al centro de emprendimiento (y tambien a ACM Uniandes, eso es monda)
+
+== Creacion de Cuenta
+	* Nombre
+	* Apellido
+	* Correo
+	* Codigo
+	* Programa principal
+	* Segundo programa u opcion
+	* Etapa actual
+		* Quiero emprender!
+		* Tengo idea de negocio
+			Tiene equipo conformado? Y/N
+				SI -> opcion para agregar nombres
+				NO -> Ellos q disq salga sugerencia pa buscar miembros, pero q se jodan.
+		* Creando empresa
+		* Empresa construida y constituida.
+			NIT
+	* Sector
+
+== CARROUSEL HOME (imagenes y la cosa)
+	 Lanzamiento (noc q putas significa eso)
+	 Logo + Slogan
+	 Junta directiva (horrible poner eso, pero alla ellos)
+	 COLUMNAS INFERIORES (3)
+		Noticias
+		Lideres del Pensamiento Emprendedor (foto y desc)
+		Partners (que manes tan burocraticos)
+	 FOOTER
+		Redes sociales (again...)
+		Platinum Sponsors (WHAT. THE. FUCK)

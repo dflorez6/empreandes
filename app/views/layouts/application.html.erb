@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ANEEU</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<%= render "partials/navbar" %>
+<%= render "partials/flash" %>
+
+<%= yield %>
+
+</body>
+<!-- FOOTER -->
+<div class="container marketing">
+  <footer>
+    <p class="pull-right"><a href="">Back to top</a></p>
+    <p>© 2013 ANNEU. </p>
+    <p>Desarrollado por <a href="http://about.me/jstriedinger">José Striedinger</a> y Fernando Hurtado. <a href="http://http://acm.uniandes.edu.co/">ACM Uniandes</a> </p>
+    <p>  </p>
+  </footer>
+</div>
+</html>

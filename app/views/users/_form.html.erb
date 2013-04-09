@@ -1,0 +1,40 @@
+<%= form_for(@user, :class => "form-horizontal") do |f| %>
+    <br><br>
+    <div class="container">
+      <div class="row">
+        <div class="span4 offset4 well">
+          <legend>Edita tu perfil</legend>
+              <div class="field">
+                <%= f.label "Nombre" %>
+                <%= f.text_field :name %>
+              </div>
+              <div class="field">
+                <%= f.label :password %>
+                <%= f.password_field :password %>
+              </div>
+              <p>Confirmacion</p>
+              <input type="password" id="conf" size="30" name="conf" placeholder="Reescribe el password">
+              <div class="field">
+                <%= f.label :bio %>
+                <%= f.text_area :bio, :rows=>4, :class=>"span4", :onkeypress=>"if (this.value.length > 200) { return false; }" %>
+              </div>
+              <div class="field">
+                <%= f.label :estado %>
+                <%= f.select :estado, options_for_select([['Quiero empreder!', "Quiero emprender!"],
+                                                          ['Tengo una idea de negocio', "Tengo una idea de negocio"],
+                                                          ['Ya tengo una empresa',"Empresario"]],:selected => @user.estado)%>
+              </div>
+              <div class="field">
+                <%= f.label :programa %>
+                <%= f.select :programa, options_for_select([['Ing. Sistemas', "Ing. Sistemas"], ['Ing. Industrial', "Ing. Industrial"],
+                                                          ['Ing. Electrica/Electronica',"Ing. Electronica"],['Ing. Civil',"Ing. Civil"],
+                                                          ['Ing. Mecanica',"Ing. Mecanica"],['Administración de empresas',"Administración de empresas"],
+                                                         ['Diseño',"Diseño"]],:selected => @user.programa)%>
+              </div>
+              <div class="actions">
+                <%= f.submit "Actualizar", :class=>"btn btn-primary" %>
+              </div>
+        </div>
+      </div>
+    </div>
+<% end %>

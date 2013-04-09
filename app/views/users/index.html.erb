@@ -1,0 +1,45 @@
+<br><br>
+<div class="container">
+  <legend><form class="navbar-search pull-right" method="get">
+    <input type="text" name="search" class="search-query" placeholder="Busca usuarios por nombre...">
+    <%= submit_tag "Buscar", :name=>nil, :class=>"btn btn-primary" %>
+  </form>
+    <h2>USUARIOS</h2>
+  </legend>
+  <div class="row">
+    <% if !@search.blank? %>
+        <p class="span10">Resultados de la busqueda por nombre: <strong>"<%=@search%>"</strong>.</p><br>
+    <% end %>
+    <div class="span8 offset2">
+      <% @users.each do |user| %>
+          <div class="row">
+            <div class="span8 well well-small">
+
+              <div class="pull-left">
+                  <% if !user.fb_image_link.blank? %>
+                      <img src="<%=user.fb_image_link.split("=")[0] << "=square"%>" class="img-rounded">
+                  <% else %>
+                      <img src="<%=asset_path( 'default_profile_mini.png' )%>" class="img-rounded">
+                  <% end %>
+              </div>
+
+
+              <div class="span3">
+                <h4><%= user.name %> </h4>
+              </div>
+              <div class="span2">
+                <a class="label label-info"><i class="icon-tags" ></i>&nbsp &nbsp <%= user.estado %></a>
+                <a class="label label-success"><i class="icon-tags" ></i>&nbsp &nbsp <%= user.programa %> </a>
+              </div>
+              <div class="span2">
+                <%= link_to user_path(user),:class=>"btn btn-inverse" do %>
+                    <i class="icon-eye-open icon-white"></i>&nbsp Ver usuario
+                <% end %>
+              </div>
+            </div>
+          </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>

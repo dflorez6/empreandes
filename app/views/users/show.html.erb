@@ -1,0 +1,81 @@
+<br xmlns="http://www.w3.org/1999/html"><br>
+<div class="container">
+  <div class="row">
+    <div class="span8  offset2 well">
+      <% if @isMe && !@user.activated %>
+          <p class="lead">Al parecer no esta activada tu cuenta con nosotros!<br>
+          Activa tu cuenta para obtener todos los beneficios que ANEU te trae.</p>
+          <div class="span2 offset3">
+            <a class="btn btn-primary" href="/activation">Activa tu cuenta!</a>
+          </div>
+
+      <% else %>
+              <div class="row">
+                <div class="span2">
+                  <% if @user.fb_image_link %>
+                      <img src="<%= @user.fb_image_link %>" class="img-polaroid"></div>
+                  <% else %>
+                      <img src="<%= asset_path( 'default_profile.jpg' ) %>" class="img-polaroid"></div>
+                  <%end%>
+                <div class="span4">
+                  <% if !@user.name %>
+                    <% if @isMe %>
+                        <p>Todavia no sabemos tu nombre! Ingresa a Facebook para obtener esta informacion enseguida o editala tu mismo</p>
+                    <%else %>
+                      <p><h2>John Doe.</h2></p>
+                    <% end %>
+                  <% else %>
+                      <p><h2><%= @user.name %></h2></p>
+                  <% end %>
+
+                  <% if @user.admin %>
+                      <p><b>*Admin</b></p>
+                  <% else %>
+                      <p><b>*Usuario regular</b></p>
+                  <%end %>
+                  <br>
+                  <h5><b>Email: </b><%= @user.email %></h5>
+                  <br>
+                  <h5>Bio:</h5>
+
+                    <% if !@user.bio%>
+                        <p>Este usuario todavia no tiene biografia.</p>
+                    <% else %>
+                      <p class="lead"> <%= @user.bio %> </p>
+                   <% end %>
+                   <span class="label label-info"><i class="icon-tags" ></i>&nbsp &nbsp <%= @user.estado %></span>
+                   <span class="label label-info"><i class="icon-tags" ></i>&nbsp &nbsp <%= @user.programa %> </span>
+                </div>
+              </div><br><br>
+              <div class="row">
+                <div class="span2">
+                  <% if @isMe %>
+                      <!-- Only EDIT de user if, in fact, that's me! !-->
+                      <%= link_to edit_user_path(@user),:class=>"btn btn-warning" do %>
+                          <i class="icon-edit"></i>&nbsp EDITAR
+                      <% end %>
+                  <% end%>
+                </div>
+                <div class="span2">
+                    <% if !@isMe %>
+                      <%= link_to edit_user_path(@user),:class=>"btn btn-info" do %>
+                          <i class="icon-envelope"></i>&nbsp ENVIAR CORREO
+                      <% end %>
+                    <% end %>
+                </div>
+              </div>
+              <% if !@user.fb_connected && @isMe %>
+                  <div class="span6 offset1">
+                      <form action="/auth/facebook">
+                        Conectate a Facebook para saber mas de ti!
+                        <button type="submit" class="btn btn-primary">
+                          <img src="<%= asset_path( 'fb.png' ) %>">Conectar con FaceBook
+                        </button>
+                      </form>
+                  </div>
+              <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+

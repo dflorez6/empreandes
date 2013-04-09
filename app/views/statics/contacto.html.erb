@@ -1,0 +1,25 @@
+<title>ANEU - Contacto</title>
+<br xmlns="http://www.w3.org/1999/html"><br><div class="container">
+    <div class="row">
+        <div class="span12">
+          <legend>Contactanos!</legend>
+          <div class="span6">
+            <p class="lead">Horario de atención: <span class="muted">Martes de 8:00AM a 12:00PM</span></p>
+            <p class="lead">Donde?</p>
+            <p>El Laboratorio de Emprendimiento se encuentra ubicado en el quinto piso del edificio de La Liga, al cual se puede acceder entrado al edificio AU, subiendo hasta el cuarto piso, y atravesando toda la terraza que se encuentra del lado contrario a la Estación de la Policía. También se puede acceder bajando por las escaleras que se encuentran al lado de Cascabel, y siguiendo hasta el fondo.</p>
+          </div>
+          <div class="span5">
+           <%= form_tag(:action => "contacto", :method=>"POST", :validate=>true) do  %>
+                <div class="row"> <div class="span1 lead">Nombre</div> <div class="span3"><input type="text" id="nombre" name="nombre" placeholder="Tu nombre"></div></div>
+
+                <div class="row"> <div class="span1 lead">Correo</div> <div class="span3"><input type="text" id="correo" name="correo" placeholder="Para responderte"></div></div>
+
+                <div class="lead">Que nos quieres decir?</div><p></p>
+                <div><textarea id="body" name="body" class="span4" rows="5" placeholder="Escribe tus dudas!"></textarea></div>
+
+                <div> <%= submit_tag "Enviar correo", :class=>"btn btn-success btn-block"%></div>
+          <% end %>
+          </div>
+        </div>
+    </div>
+</div>

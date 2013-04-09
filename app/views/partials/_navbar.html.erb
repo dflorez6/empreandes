@@ -1,0 +1,93 @@
+<!-- NAVBAR
+================================================== -->
+
+<div class="navbar-wrapper">
+  <!-- Wrap the .navbar in .container to center it within the absolutely positioned parent. -->
+
+
+
+  <div class="navbar navbar-inverse navbar-fixed-top">
+
+    <div class="navbar-inner">
+      <div class="container">
+        <!-- Responsive Navbar Part 1: Button for triggering responsive navbar (not covered in tutorial). Include responsive CSS to utilize. -->
+        <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="brand" href="/">
+          <%= Rails.application.class.parent_name %>
+        </a>
+        <!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed withing .navbar-collapse.collapse. -->
+        <div class="nav-collapse collapse">
+
+          <ul class="nav">
+            <li class="dropdown">
+              <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                <i class="icon-group"></i> Organizacion<b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="/equipo">Equipo</a></li>
+                <li><a href="/contacto">Contacto</a></li>
+                <li><a href="/">Reclutamiento</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="/">  <i class="icon-calendar"></i> Agenda</a>
+            </li>
+            <li>
+              <a href="/#"><i class="icon-tasks"></i> Proyectos</a>
+            </li>
+            <li>
+              <a href="/users"><i class="icon-user"></i>Usuarios</a>
+            </li>
+
+          </ul>
+          <ul class="nav pull-right">
+            <% if signed_in? %>
+                <!-- There's a user logged in -->
+
+                <li class="dropdown">
+                  <a href="" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-user"></i> Profile <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <%= link_to current_user do%>
+                          <i class="icon-user"></i> profile
+                      <% end %>
+                    </li>
+                    <li>
+                      <a href="/salir"><i class="icon-off"></i> salir</a>
+                    </li>
+                  </ul>
+                </li>
+
+            <% else %>
+                <!-- There's NO user logged in -->
+                <li><a href="/register">Registrate</a></li>
+                <li class="divider-vertical"></li>
+                <li class="dropdown">
+                  <a class="dropdown-toggle" href="#" data-toggle="dropdown">Iniciar Sesion <strong class="caret"></strong></a>
+                  <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
+                    <%= form_tag(:controller => "statics", :action => "ingresar", :method=>"POST",:class => "form-horizontal", :validate=>true) do %>
+                        <li><input type="text" id="username" class="span2" name="mail" placeholder="Correo uniandes"></li>
+                        <li><input type="password" id="password" class="span2" name="pswd" placeholder="Password"></li>
+                        <input class="submit_link" name="commit" type="submit" value="Olvide mi password!">
+                        <%= submit_tag "Ingresar", :class=>"btn btn-primary btn-block"%>
+
+                    <% end %>
+
+                    <!-- Login form here -->
+                  </div>
+                </li>
+            <% end %>
+          </ul>
+
+        </div><!--/.nav-collapse -->
+      </div>
+    </div><!-- /.navbar-inner -->
+
+  </div><!-- /.navbar -->
+
+
+</div><!-- /.navbar-wrapper -->

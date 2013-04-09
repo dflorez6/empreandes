@@ -1,0 +1,16 @@
+<br><br><div class="container">
+  <%= form_tag(:controller => "statics", :action => "activation", :method=>"POST",:class => "form-horizontal", :validate=>true) do  %>
+      <div class="row">
+        <div class="span4 offset4 well">
+          <legend>Activa tu cuenta en <b>ANEU</b></legend>
+
+          <input type="text" id="user" class="span3" name="mail" placeholder="Nombre de usuario Uniandes">
+          <input type="text" id="codigo" class="span3" name="codigo" placeholder="Codigo que se te envio por correo"><br>
+          <input class="submit_link" name="commit" type="submit" value="Reenviar correo de activacion"><br><br>
+
+            <%= submit_tag "Activar cuenta", :class=>"btn btn-success btn-block"%></div>
+
+        </div>
+      </div>
+  <% end %>
+</div>
