@@ -57,11 +57,6 @@
                   <% end%>
                 </div>
                 <div class="span2">
-                    <% if !@isMe %>
-                      <%= link_to edit_user_path(@user),:class=>"btn btn-info" do %>
-                          <!--<i class="icon-envelope"></i>-->&nbsp ENVIAR CORREO
-                      <% end %>
-                    <% end %>
                 </div>
                 <% if !@user.fb_connected && @isMe %>
                     <div class="span3 offset1">
