@@ -2,6 +2,9 @@ class User < ActiveRecord::Base
   attr_accessible :admin, :bio, :email, :interest, :name, :oath_expires_at, :oauth_token, :password, :uid, :act_code, :activated, :fb_connected, :estado, :codigo, :programa
   before_save :create_remember_token
 
+  validates_uniqueness_of :email, :message => "Este correo ya tiene asignado una cuenta ANEU."
+  validates_uniqueness_of :codigo, :message => "Este codigo estudiantil ya tiene asignado una cuenta ANEU."
+
   no_whitespace = /^[\S]+$/
   validates_presence_of :email, :password, :message => "Llena todos los datos por favor."
   validates_format_of :email, :with =>  /(@uniandes.edu.co)\Z/, :message => "Recuerda, debes poner todo correo uniandes. Es decir, con @uniandes.edu.co"

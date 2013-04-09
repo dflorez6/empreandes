@@ -63,17 +63,17 @@
                       <% end %>
                     <% end %>
                 </div>
-              </div>
-              <% if !@user.fb_connected && @isMe %>
-                  <div class="span6 offset1">
+                <% if !@user.fb_connected && @isMe %>
+                    <div class="span3 offset1">
                       <form action="/auth/facebook">
-                        Conectate a Facebook para saber mas de ti!
                         <button type="submit" class="btn btn-primary">
-                          <img src="<%= asset_path( 'fb.png' ) %>">Conectar con FaceBook
+                          <img src="<%= asset_path( 'fb.png' ) %>">Conectar con Facebook
                         </button>
                       </form>
-                  </div>
-              <% end %>
+                    </div>
+                <% end %>
+              </div>
+
       <% end %>
     </div>
   </div>
