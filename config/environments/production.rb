@@ -65,6 +65,7 @@ ANEU::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
+  config.assets.compile = true
 
   #Facebook Omniauth Authentication for DEV
   FB_ID = '558350127520029'
