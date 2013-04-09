@@ -10,10 +10,10 @@
     <% if !@search.blank? %>
         <p class="span10">Resultados de la busqueda por nombre: <strong>"<%=@search%>"</strong>.</p><br>
     <% end %>
-    <div class="span8 offset2">
+    <div class="span10">
       <% @users.each do |user| %>
           <div class="row">
-            <div class="span8 well well-small">
+            <div class="span10 well well-small">
 
               <div class="pull-left">
                   <% if !user.fb_image_link.blank? %>
@@ -27,11 +27,11 @@
               <div class="span3">
                 <h4><%= user.name %> </h4>
               </div>
-              <div class="span2">
+              <div class="span3">
                 <a class="label label-info"><i class="icon-tags" ></i>&nbsp &nbsp <%= user.estado %></a>
                 <a class="label label-success"><i class="icon-tags" ></i>&nbsp &nbsp <%= user.programa %> </a>
               </div>
-              <div class="span2">
+              <div class="span2 pull-right">
                 <%= link_to user_path(user),:class=>"btn btn-inverse" do %>
                     <i class="icon-eye-open icon-white"></i>&nbsp Ver usuario
                 <% end %>
