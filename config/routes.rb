@@ -69,4 +69,6 @@ ANEU::Application.routes.draw do
   match "/ingresar" => "statics#ingresar"
   match "/equipo" =>  "statics#equipo"
   match "/contacto" => "statics#contacto"
+
+  match "/proyectos" => "statics#proyectos"
 end

@@ -155,4 +155,8 @@ class StaticsController < ApplicationController
 
   end
 
+  def proyectos
+
+  end
+
 end
