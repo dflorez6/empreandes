@@ -9,28 +9,62 @@
                 <%= f.text_field :name %>
               </div>
               <div class="field">
-                <%= f.label :password %>
-                <%= f.password_field :password %>
+                <%= f.label "Apellido" %>
+                <%= f.text_field :apellido %>
               </div>
-              <p>Confirmacion</p>
-              <input type="password" id="conf" size="30" name="conf" placeholder="Reescribe el password">
               <div class="field">
-                <%= f.label :bio %>
-                <%= f.text_area :bio, :rows=>4, :class=>"span4", :onkeypress=>"if (this.value.length > 200) { return false; }" %>
+                <%= f.label "Pag web o Blog" %>
+                <%= f.text_field :pagweb %>
+              </div>
+              <div class="field">
+                <%= f.label :programa %>
+                <%= f.select :programa, options_for_select([['Ing. Sistemas', "Ing. Sistemas"], ['Ing. Industrial', "Ing. Industrial"],
+                                                            ['Ing. Electrica/Electronica',"Ing. Electronica"],['Ing. Civil',"Ing. Civil"],
+                                                            ['Ing. Mecanica',"Ing. Mecanica"],['Administración de empresas',"Administración de empresas"],
+                                                            ['Diseño',"Diseño"]],:selected => @user.programa)%>
               </div>
               <div class="field">
                 <%= f.label :estado %>
                 <%= f.select :estado, options_for_select([['Quiero empreder!', "Quiero emprender!"],
                                                           ['Tengo una idea de negocio', "Tengo una idea de negocio"],
+                                                          ['Creando empresa',"Creando empresa"],
                                                           ['Ya tengo una empresa',"Empresario"]],:selected => @user.estado)%>
               </div>
               <div class="field">
-                <%= f.label :programa %>
-                <%= f.select :programa, options_for_select([['Ing. Sistemas', "Ing. Sistemas"], ['Ing. Industrial', "Ing. Industrial"],
-                                                          ['Ing. Electrica/Electronica',"Ing. Electronica"],['Ing. Civil',"Ing. Civil"],
-                                                          ['Ing. Mecanica',"Ing. Mecanica"],['Administración de empresas',"Administración de empresas"],
-                                                         ['Diseño',"Diseño"]],:selected => @user.programa)%>
+                <%= f.label "Sector de mayor interes" %>
+                <%= f.select :sector, options_for_select([['Administracion Publica', "Administracion publica"],
+                                                          ['Agricultura y Ganaderia', "Agricultura/Ganaderia"],
+                                                          ['Agroalimentario',"Agroalimentario"],
+                                                          ['Arte y Cultura',"Arte y Cultura"],
+                                                          ['Autopistas',"Autopistas"],
+                                                          ['Banca y Finanzas',"Banca y Finanzas"],
+                                                          ['Construccion',"Construccion"],
+                                                          ['Consultoria',"Consultoria"],
+                                                          ['Distribucion',"Distribucion"],
+                                                          ['Educacion y Formacion',"Educacion/Formacion"],
+                                                          ['Energia',"Energia"],
+                                                          ['Farmacia',"Farmacia"],
+                                                          ['Forestal',"Forestal"],
+                                                          ['Industrial',"Industrial"],
+                                                          ['Informacion',"Informacion"],
+                                                          ['Ingenieria',"Ingenieria"],
+                                                          ['Inmobilaria',"Inmobilaria"],
+                                                          ['Medicina y Salud',"Medicina y Salud"],
+                                                          ['Medio Ambiente',"Medio Ambiente"],
+                                                          ['Motor',"Motor"],
+                                                          ['Publicidad',"Publicidad"],
+                                                          ['Marketing',"Marketing"],
+                                                          ['Salud y Belleza',"Salud y Belleza"],
+                                                          ['Seguros',"Seguros"]],:selected => @user.sector)%>
               </div>
+              <div class="field">
+                <%= f.label :password %>
+                <%= f.password_field :password %>
+              </div>
+              <p>Confirmacion</p>
+              <input type="password" id="conf" size="30" name="conf" placeholder="Reescribe el password">
+
+
               <div class="actions">
                 <%= f.submit "Actualizar", :class=>"btn btn-primary" %>
               </div>

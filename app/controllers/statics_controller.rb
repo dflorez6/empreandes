@@ -8,24 +8,9 @@ class StaticsController < ApplicationController
   def new
     password = params[:password]
     username = params[:username]
-    estado = params[:estado]
-    codigo = params[:codigo]
-    programa = params[:programa]
     act_code= SecureRandom.urlsafe_base64
-    @user = User.new(:password=>password,:admin=>false, :email=>username, :act_code=>act_code, :activated=>false, :estado=>estado,
-                     :fb_connected=>false, :codigo=>codigo, :programa=>programa)
-
-
-    #Using LDAP
-    #require 'rubygems'
-    #require 'net/ldap'
-    #ldap = Net::LDAP.new
-    #ldap.host = "ldap://ldap.uniandes.edu.co"
-    #ldap.port = 10389
-    #userText=   "uid=" +username+",ou=users,ou=system"
-    #ldap.auth userText, password
-    #result=ldap.bind
-    result =true
+    @user = User.new(:password=>password,:admin=>false, :email=>username, :act_code=>act_code, :activated=>false,
+                     :fb_connected=>false)
 
     if @user.save
       sign_in(@user)
@@ -156,6 +141,28 @@ class StaticsController < ApplicationController
   end
 
   def proyectos
+
+  end
+
+  def reclutamiento
+    name = params[:nombre]
+    career = params[:carrera]
+    semester = params[:semestre]
+    area = params[:area]
+    coments = params[:body]
+
+    if(params[:commit]=="Enviar")
+      if(name.blank? || career.blank? || area.blank? || coments.blank?)
+        flash[:error]="Llena todos los datos porfavor."
+      else
+        begin
+          UserMailer.reclut_email(name,career,semester,area,coments).deliver
+          flash[:notice]="Correo enviado! Apenas podamos nos comunicamos contigo."
+        rescue
+          flash[:error]="Also salio mal. Disculpa las molestias! Intentalo de nuevo."
+        end
+      end
+    end
 
   end
 

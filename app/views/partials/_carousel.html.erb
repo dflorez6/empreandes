@@ -1,15 +1,36 @@
-<div id="myCarousel" class="carousel slide">
+<div id="myCarousel" class="carousel slide" style="width: 1200px;margin: 0 auto">
   <ol class="carousel-indicators">
     <li data-target="#myCarousel" data-slide-to="0" class=""></li>
     <li class="active" data-target="#myCarousel" data-slide-to="1"></li>
     <li class="" data-target="#myCarousel" data-slide-to="2"></li>
   </ol>
   <div class="carousel-inner">
-    <div class="item active">
-      <img src="<%= asset_path( 'ANEU.png' ) %>" alt="">
+    <div class="item">
+      <img src="<%= asset_path( 'carrusel_lanzamiento.png' ) %>" alt="">
       <div class="carousel-caption">
-        <h2>Lanzamiento</h2>
+        <h2 style="color: #ffffff">Lanzamiento</h2>
         <p>No te pierdas el gran lanzamiento de la ANEU el martes 9 de abril a las 10:00 AM!.</p>
+      </div>
+    </div>
+    <div class="item active">
+      <img src="<%= asset_path('carrusel_networking.png')%>" >
+      <div class="carousel-caption">
+        <h2 style="color: #ffffff">Evento de Networking</h2>
+        <p>No te pierdas el 1er evento de Networking, enfocado en creacion de equipos de trabajo!</p>
+      </div>
+    </div>
+    <div class="item">
+      <img src="<%= asset_path('carrusel_junta.png')%>" >
+      <div class="carousel-caption">
+        <h2 style="color: #ffffff">Junta Directiva</h2>
+        <p>Conoce la Junta Directiva de ANEU, entra a la seccion de Equipo para saber mas sobre nosotros.</p>
+      </div>
+    </div>
+    <div class="item">
+      <img src="<%= asset_path('carrusel_sw.png')%>" >
+      <div class="carousel-caption">
+        <h2 style="color: #ffffff">Startup Weekend en Uniandes!</h2>
+        <p>No te pierdas la 1ra edición de Startup Weekend en Uniandes del 26 al 28 de Abril.</p>
       </div>
     </div>
   </div>

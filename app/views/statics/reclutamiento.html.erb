@@ -1,0 +1,20 @@
+<br>
+<div  class="container">
+  <legend>Reclutamiento ANEU</legend>
+</div>
+<div class="container marketing well">
+  <p>Permanentemente estaremos buscando voluntarios que nos apoyen en nuestras actividades. Si estas interesado en trabajar con nosotros, no dudes en dejarnos tus datos llenando el siguiente formulario:</p>
+  <%= form_tag(:action => "reclutamiento", :method=>"POST", :validate=>true) do  %>
+      <div class="row"> <div class="span3 lead">Nombre</div> <div class="span3"><input type="text" id="nombre" name="nombre" placeholder="Tu nombre"></div></div>
+
+      <div class="row"> <div class="span3 lead">Carrera</div> <div class="span3"><input type="text" id="carrera" name="carrera" placeholder="Que carrera estudias?"></div></div>
+      <div class="row"> <div class="span3 lead">Semestre</div> <div class="span2"><input type="number" id="semestre" name="semestre"></div></div>
+      <div class="row"> <div class="span3 lead">Área de Interes</div> <div class="span3"><input type="text" id="area" name="area" placeholder="Que área te interesa?"></div></div>
+
+
+      <div class="lead">Comentarios</div><p></p>
+      <div><textarea id="body" name="body" class="span6" rows="6" placeholder="Escribe tus dudas!" onkeypress="if (this.value.length > 200) { return false; }"></textarea></div>
+
+      <div> <%= submit_tag "Enviar", :class=>"btn btn-success"%></div>
+  <% end %>
+</div>

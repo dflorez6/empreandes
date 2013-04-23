@@ -11,6 +11,11 @@ class UserMailer < ActionMailer::Base
   end
 
   def contact_email(name,email,body)
-    mail(:to => email, :subject => "Contacto - ANEEU", :body => "Nombre: "+name+"\n\nCorreo: "+email+"\n\nMensaje:\n"+body)
+    mail(:to => "aneu@uniandes.edu.co", :subject => "Contacto - ANEEU", :body => "Nombre: "+name+"\n\nCorreo: "+email+"\n\nMensaje:\n"+body)
+  end
+
+  def reclut_email(name,career,semester,area,coments)
+    mail(:to => "aneu@uniandes.edu.co", :subject=>"Reclutamiento", :body => "Nombre: "+name+"\n\nCarrera: "+
+    career+"\n\nSemestre: "+semester+"\n\nArea de interes: "+area+"\n\nComentarios: \n"+coments)
   end
 end

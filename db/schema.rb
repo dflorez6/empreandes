@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130406163748) do
+ActiveRecord::Schema.define(:version => 20130423040115) do
 
   create_table "empresas", :force => true do |t|
     t.string "name"
@@ -48,6 +48,9 @@ ActiveRecord::Schema.define(:version => 20130406163748) do
     t.integer  "codigo"
     t.string   "programa"
     t.string   "estado"
+    t.string   "apellido"
+    t.string   "pagweb"
+    t.string   "sector"
   end
 
   add_index "users", ["codigo"], :name => "index_users_on_codigo", :unique => true
