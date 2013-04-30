@@ -27,7 +27,7 @@ Desarrollado por José Striedinger y Fernando Hurtado.
 4. Proyectos
 	a. Concurso Modelos de Negocio
 	b. Lideres del pensamiento emprendedor
-5. Link al centro de emprendimiento (y tambien a ACM Uniandes, eso es monda)
+5. Link al centro de emprendimiento
 
 == Creacion de Cuenta
 	* Nombre
@@ -41,20 +41,20 @@ Desarrollado por José Striedinger y Fernando Hurtado.
 		* Tengo idea de negocio
 			Tiene equipo conformado? Y/N
 				SI -> opcion para agregar nombres
-				NO -> Ellos q disq salga sugerencia pa buscar miembros, pero q se jodan.
+				NO -> q disq salga sugerencia pa buscar miembros algo asi.
 		* Creando empresa
 		* Empresa construida y constituida.
 			NIT
 	* Sector
 
 == CARROUSEL HOME (imagenes y la cosa)
-	 Lanzamiento (noc q putas significa eso)
+	 Lanzamiento 
 	 Logo + Slogan
-	 Junta directiva (horrible poner eso, pero alla ellos)
+	 Junta directiva
 	 COLUMNAS INFERIORES (3)
 		Noticias
 		Lideres del Pensamiento Emprendedor (foto y desc)
 		Partners (que manes tan burocraticos)
 	 FOOTER
 		Redes sociales (again...)
-		Platinum Sponsors (WHAT. THE. FUCK)
+		Platinum Sponsors
