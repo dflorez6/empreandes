@@ -1,7 +1,7 @@
 <br xmlns="http://www.w3.org/1999/html"><br>
 <div class="container">
   <div class="row">
-    <div class="span9  offset2 well">
+    <div class="span9 offset1 well well-small">
       <% if @isMe && !@user.activated %>
           <p class="lead">Al parecer no esta activada tu cuenta con nosotros!<br>
           Activa tu cuenta para obtener todos los beneficios que ANEU te trae.</p>
@@ -10,73 +10,68 @@
           </div>
 
       <% else %>
-              <div class="row">
-                <div class="span2">
-                  <% if @user.fb_image_link %>
-                      <img src="<%= @user.fb_image_link %>" class="img-polaroid"></div>
-                  <% else %>
-                      <img src="<%= asset_path( 'default_profile.jpg' ) %>" class="img-polaroid"></div>
-                  <%end%>
-                <div class="span4">
-                  <% if !@user.name %>
+          <div class="span3">
+            <% if @user.fb_image_link %>
+                <img src="<%= @user.fb_image_link %>" class="img-polaroid">
+            <% else %>
+                <img src="<%= asset_path( 'default_profile.jpg' ) %>" class="img-polaroid">
+            <%end%>
+            <br><br>
+            <div class="span2"> <span class="label label-info"><i class="icon-tags" ></i>&nbsp &nbsp <%= @user.estado %></span></div>
+            <div class="span2"> <span class="label label-info"><i class="icon-tags" ></i>&nbsp &nbsp <%= @user.programa %> </span></div>
+          </div>
+          <div class="span5">
+                <% if !@user.name %>
                     <% if @isMe %>
-                        <p>< tu nombre ></p>
+                        <h2>< tu nombre ></h2>
                     <%else %>
-                      <p><h2>John Doe.</h2></p>
+                        <p><h2>John Doe.</h2></p>
                     <% end %>
-                  <% else %>
-                      <p><h2><%= @user.name %></h2></p>
-                  <% end %>
-
-                  <% if @user.admin %>
-                      <p><b>*Admin</b></p>
-                  <% else %>
-                      <p><b>*Usuario regular</b></p>
-                  <%end %>
-                  <br>
-                  <h5><b>Email: </b><%= @user.email %></h5>
-                  <br>
-                  <h5>Bio:</h5>
-
-                    <% if !@user.bio%>
-                        <p>Este usuario todavia no tiene biografia.</p>
-                    <% else %>
-                      <p class="lead"> <%= @user.bio %> </p>
-                   <% end %>
-                   <span class="label label-info"><i class="icon-tags" ></i>&nbsp &nbsp <%= @user.estado %></span>
-                   <span class="label label-info"><i class="icon-tags" ></i>&nbsp &nbsp <%= @user.programa %> </span>
-                </div>
-              </div><br><br>
-              <div class="row">
-                <div class="span2">
-                  <% if @isMe %>
-                      <!-- Only EDIT de user if, in fact, that's me! !-->
-                      <%= link_to edit_user_path(@user),:class=>"btn btn-warning" do %>
-                          <i class="icon-edit"></i>&nbsp EDITAR
-                      <% end %>
-                  <% end%>
-                </div>
-                <div class="span3">
-                  <% if @user.estado!="Quiero emprender!" %>
-                      <!-- Only EDIT de user if, in fact, that's me! !-->
-                      <%= link_to "/myteam",:class=>"btn btn-warning" do %>
-                      <i class="icon-edit"></i>Equipo
-                  <% end %>
-                  <% end%>
-                </div>
-                <div class="span2">
-                </div>
-                <% if !@user.fb_connected && @isMe %>
-                    <div class="span3 offset1">
-                      <form action="/auth/facebook">
-                        <button type="submit" class="btn btn-primary">
-                          <img src="<%= asset_path( 'fb.png' ) %>">Conectar con Facebook
-                        </button>
-                      </form>
-                    </div>
+                <% else %>
+                    <h2><%= @user.name %></h2>
                 <% end %>
-              </div>
 
+                <% if @user.admin %>
+                    <p><b>*Admin</b></p>
+                <% else %>
+                    <p><b>*Usuario regular</b></p>
+                <%end %>
+                <h5><b>Email: </b><%= @user.email %></h5>
+                <br>
+                <h5>Bio:</h5>
+
+                <% if !@user.bio%>
+                    <p>Este usuario todavia no tiene biografia.</p>
+                <% else %>
+                    <p class="lead"> <%= @user.bio %> </p>
+                <% end %>
+
+            <div class="pull-left">
+              <% if @isMe %>
+                  <!-- Only EDIT de user if, in fact, that's me! !-->
+                  <%= link_to "EDITAR PERFIL", edit_user_path(@user),:class=>"btn btn-success" %>
+              <% end%>
+            </div>
+            <div class="span2">
+              <% if @user.estado!="Quiero emprender!" %>
+                  <!-- Only EDIT de user if, in fact, that's me! !-->
+                  <%= link_to "/myteam",:class=>"btn btn-success" do %>
+                      MI EQUIPO
+                  <% end %>
+              <% end%>
+            </div>
+
+              <% if !@user.fb_connected && @isMe %>
+                  <div class="span3 offset1">
+                    <br>
+                    <form action="/auth/facebook">
+                      <button type="submit" class="btn btn-primary">
+                        <img src="<%= asset_path( 'fb.png' ) %>">Conectar con Facebook
+                      </button>
+                    </form>
+                  </div>
+              <% end %>
+          </div>
       <% end %>
     </div>
   </div>
