@@ -1,7 +1,7 @@
 <br xmlns="http://www.w3.org/1999/html"><br>
 <div class="container">
   <div class="row">
-    <div class="span8  offset2 well">
+    <div class="span9  offset2 well">
       <% if @isMe && !@user.activated %>
           <p class="lead">Al parecer no esta activada tu cuenta con nosotros!<br>
           Activa tu cuenta para obtener todos los beneficios que ANEU te trae.</p>
@@ -20,7 +20,7 @@
                 <div class="span4">
                   <% if !@user.name %>
                     <% if @isMe %>
-                        <p>Todavia no sabemos tu nombre! Ingresa a Facebook para obtener esta informacion enseguida o editala tu mismo</p>
+                        <p><tu nombre></p>
                     <%else %>
                       <p><h2>John Doe.</h2></p>
                     <% end %>
@@ -54,6 +54,14 @@
                       <%= link_to edit_user_path(@user),:class=>"btn btn-warning" do %>
                           <i class="icon-edit"></i>&nbsp EDITAR
                       <% end %>
+                  <% end%>
+                </div>
+                <div class="span3">
+                  <% if @user.estado!="Quiero emprender!" %>
+                      <!-- Only EDIT de user if, in fact, that's me! !-->
+                      <%= link_to "/myteam",:class=>"btn btn-warning" do %>
+                      <i class="icon-edit"></i>Equipo
+                  <% end %>
                   <% end%>
                 </div>
                 <div class="span2">

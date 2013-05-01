@@ -11,12 +11,36 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130423040115) do
+ActiveRecord::Schema.define(:version => 20130501011134) do
 
   create_table "empresas", :force => true do |t|
     t.string "name"
     t.string "nit"
     t.string "desc"
+  end
+
+  create_table "equipos", :force => true do |t|
+    t.string   "name"
+    t.integer  "nit"
+    t.integer  "max"
+    t.string   "user1"
+    t.string   "mail_user1"
+    t.string   "user2"
+    t.string   "mail_user2"
+    t.string   "user3"
+    t.string   "mail_user3"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "events", :force => true do |t|
+    t.string   "name"
+    t.datetime "start_at"
+    t.datetime "end_at"
+    t.boolean  "all_day"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "sessions", :force => true do |t|
@@ -51,6 +75,7 @@ ActiveRecord::Schema.define(:version => 20130423040115) do
     t.string   "apellido"
     t.string   "pagweb"
     t.string   "sector"
+    t.boolean  "has_team"
   end
 
   add_index "users", ["codigo"], :name => "index_users_on_codigo", :unique => true

@@ -1,0 +1,103 @@
+<br> <br>
+<div class="container">
+
+  <% if !signed_in? %>
+  <div class="span8 offset1 well">
+    <p class="lead text-center">Necesitas estar logeado para editar tu equipo emprendedor!<br>
+  </div>
+  <% elsif !@can %>
+      <div class="span10 well">
+        <p class="lead text-center">Para crear un equipo debes especificar que tu estado no es <strong>Quiero emprender!</strong><br>
+      </div>
+  <% elsif !@user.has_team && @isMe%>
+          <div class="span8 offset1 well">
+            <p class="lead">Con un equipo o con una empresa consolidada? Pueden agregar a tu equipo aca mismo!<br>
+              <%= form_tag(:controller => "users", :action => "myteam", :method=>"POST",:class => "form-horizontal", :validate=>true) do  %>
+
+                <%= submit_tag "Crear equipo", :class=>"btn btn-success btn-primary offset3"%></div>
+              <% end %>
+          </div>
+  <% else  %>
+
+            <legend class="text-center">Equipo de <%= @user.name %></legend>
+          <div class="span12">
+          <div class="span12 well">
+            <br>
+            <!-- Display the team-->
+             <h2>
+               <%= (@equipo.name.blank? ? "<nombre equipo>": @equipo.name) %></h2>
+             <h3>Miembros:</h3>
+               <table class="table table-striped text-center">
+                 <tr>
+                   <th style="width: 50%">Nombre</th>
+                   <th style="width: 50%">Correo</th>
+                 </tr>
+                 <tr>
+                   <td><%= @user.name%></td>
+                   <td><%= @user.email %></td>
+                 </tr>
+                   <td>
+                     <%=  @equipo.user1 %></td>
+                   <td><%= @equipo.mail_user1 %></td>
+                 </tr>
+                 <tr>
+                     <td>
+                       <%=  @equipo.user2 %></td>
+                     <td><%= @equipo.mail_user2 %></td>
+                 </tr>
+                 <tr>
+                     <td>
+                       <%=  @equipo.user3 %></td>
+                     <td><%= @equipo.mail_user3 %></td>
+                 </tr>
+
+               </table></div>
+
+            <div class="span12 well">
+              <h3>Edita tu equipo</h3>
+              <%= form_tag(:action => "myteam", :method=>"POST",:class => "form-horizontal", :validate=>true) do  %>
+
+                  <div class="row"> <div class="span1 lead">Nombre</div> <div class="span3 offset1"><input type="text" id="nombre" name="nombre" placeholder="Nombre del equipo"value="<%=@equipo.name %>" ></div></div>
+                  <div class="row">
+                        <div class="span4">
+                          <div class="lead">Integrante 1</div>
+                          <div class="span5 pull-left"><input type="text" id="u1" name="u1" placeholder="nombre integrante1" value="<%=@equipo.user1 %>"></div>
+                          <div class="span4 pull-left"><input type="text" id="cu1" name="cu1" placeholder="correo integrante1" value="<%=@equipo.mail_user1 %>"></div>
+                        </div>
+                        <div class="span4">
+                          <div class="lead">Integrante 2</div>
+                          <div class="span5 pull-left"><input type="text" id="u2" name="u2" placeholder="nombre integrante2" value="<%=@equipo.user2 %>"></div>
+                          <div class="span4 pull-left"><input type="text" id="cu2" name="cu2" placeholder="correo integrante2" value="<%=@equipo.mail_user2 %>"></div>
+                        </div>
+                        <div class="span4">
+                          <div class="lead">Integrante 3</div>
+                          <div class="span5 pull-left"><input type="text" id="u3" name="u3" placeholder="nombre integrante3" value="<%=@equipo.user3 %>"></div>
+                          <div class="span4 pull-left"><input type="text" id="cu3" name="cu3" placeholder="correo integrante3" value="<%=@equipo.mail_user3 %>"></div>
+                        </div>
+                  </div>
+                  <div class="row">
+                    <div class="span12">
+                      <hr>
+                      <div class="lead"> Si tu equipo es una empresa ya consolidada, proveenos tu <strong>NIT</strong>:</div>
+                      <div class="span3"><input type="number" id="nit" name="nit" value="<%=@equipo.nit %>"></div>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                    <div class="span6 offset3">
+                     <%= submit_tag "Editar mi equipo", :class=>"lead btn btn-success btn-primary btn-block"%></div>
+                    </div>
+
+                  </div>
+
+
+              <% end %>
+
+
+            </div>
+          </div>
+
+
+            </div>
+      <% end%>
+</div>

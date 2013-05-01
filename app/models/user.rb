@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
-  attr_accessible :admin, :bio, :email, :interest, :name, :oath_expires_at, :oauth_token, :password, :uid, :act_code, :activated, :fb_connected, :estado, :codigo, :programa
+  attr_accessible :has_team, :admin, :bio, :email, :interest, :name, :oath_expires_at, :oauth_token, :password, :uid, :act_code, :activated, :fb_connected, :estado, :codigo, :programa, :apellido, :pagweb, :sector
   before_save :create_remember_token
+
+  belongs_to :equipo
 
   validates_uniqueness_of :email, :message => "Este correo ya tiene asignado una cuenta ANEU."
   validates_uniqueness_of :codigo, :message => "Este codigo estudiantil ya tiene asignado una cuenta ANEU."

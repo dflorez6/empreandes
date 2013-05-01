@@ -89,4 +89,34 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def myteam
+  @user  = current_user
+  @isMe = signed_in? && current_user.email== @user.email
+  @can = @user.estado!="Quiero emprender!"
+  if !@user.blank?
+        @equipo = Equipo.find_by_user_id(@user.id)
+  end
+    if params[:commit]=="Crear equipo"
+       @user.has_team = true
+       @equipo = @user.create_equipo(:name=>"", :max=>4, :user_id=>@user.id, :user1=>"N/A", :mail_user1=>"N/A",:user2=>"N/A", :mail_user2=>"N/A",:user3=>"N/A", :mail_user3=>"N/A")
+       @equipo.save!
+       @user.save!
+       sign_in(@user)
+
+    elsif params[:commit] == "Editar mi equipo"
+        @equipo.name = params[:nombre]
+        @equipo.user1 = params[:u1]
+        @equipo.mail_user1 = params[:cu1]
+        @equipo.user2 = params[:u2]
+        @equipo.mail_user2 = params[:cu2]
+        @equipo.user3 = params[:u3]
+        @equipo.mail_user3 = params[:cu3]
+        @equipo.nit = params[:nit]
+        @equipo.save
+
+
+    end
+
+  end
 end

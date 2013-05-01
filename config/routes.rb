@@ -71,5 +71,8 @@ ANEU::Application.routes.draw do
   match "/contacto" => "statics#contacto"
   match "/reclutamiento" => "statics#reclutamiento"
 
-  match "/proyectos" => "statics#proyectos"
+  match "/lid_pen_emp" => "statics#lid_pen_emp"
+  match "/concurso_modelos" => "statics#concurso_modelos"
+
+  match "/myteam" => "users#myteam"
 end

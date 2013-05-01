@@ -10,7 +10,7 @@ class StaticsController < ApplicationController
     username = params[:username]
     act_code= SecureRandom.urlsafe_base64
     @user = User.new(:password=>password,:admin=>false, :email=>username, :act_code=>act_code, :activated=>false,
-                     :fb_connected=>false)
+                     :fb_connected=>false, :has_team => false)
 
     if @user.save
       sign_in(@user)
@@ -18,6 +18,7 @@ class StaticsController < ApplicationController
       flash[:notice] = "Listo! Revisa tu correo para el codigo de confirmacion!"
       redirect_to current_user
     else
+
       if @user.errors[:email]
         flash[:error]= @user.errors[:email].to_sentence
       elsif @user.errors[:password]
@@ -140,8 +141,10 @@ class StaticsController < ApplicationController
 
   end
 
-  def proyectos
+  def lid_pen_emp
+  end
 
+  def concurso_modelos
   end
 
   def reclutamiento

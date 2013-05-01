@@ -1,3 +1,18 @@
+<head>
+  <script type="text/javascript">
+
+      $('#foo').change(function() {
+          if($('#foo').val() == "Quiero emprender!"){
+              document.getElementById("hideablearea").style.visibility = "visible";
+          }
+          else
+          {
+              document.getElementById("hideablearea").style.visibility = "hidden";
+          }
+      });
+
+  </script>
+</head>
 <%= form_for(@user, :class => "form-horizontal") do |f| %>
     <br><br>
     <div class="container">
@@ -23,7 +38,7 @@
                                                             ['Ing. Mecanica',"Ing. Mecanica"],['Administración de empresas',"Administración de empresas"],
                                                             ['Diseño',"Diseño"]],:selected => @user.programa)%>
               </div>
-              <div class="field">
+              <div id="foo" class="field" >
                 <%= f.label :estado %>
                 <%= f.select :estado, options_for_select([['Quiero empreder!', "Quiero emprender!"],
                                                           ['Tengo una idea de negocio', "Tengo una idea de negocio"],
