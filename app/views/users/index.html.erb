@@ -28,8 +28,8 @@
                 <h4><%= user.name %> </h4>
               </div>
               <div class="span3">
-                <a class="label label-info"><i class="icon-tags" ></i>&nbsp &nbsp <%= user.estado %></a>
-                <a class="label label-success"><i class="icon-tags" ></i>&nbsp &nbsp <%= user.programa %> </a>
+                <a class="label label-info"><%= user.estado %></a>
+                <a class="label label-success"><%= user.programa %> </a>
               </div>
               <div class="span2 pull-right">
                 <%= link_to user_path(user),:class=>"btn btn-inverse" do %>

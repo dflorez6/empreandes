@@ -1,23 +1,10 @@
 <head>
-  <script type="text/javascript">
-
-      $('#foo').change(function() {
-          if($('#foo').val() == "Quiero emprender!"){
-              document.getElementById("hideablearea").style.visibility = "visible";
-          }
-          else
-          {
-              document.getElementById("hideablearea").style.visibility = "hidden";
-          }
-      });
-
-  </script>
 </head>
 <%= form_for(@user, :class => "form-horizontal") do |f| %>
     <br><br>
     <div class="container">
       <div class="row">
-        <div class="span4 offset4 well">
+        <div class="span5 offset3 well">
           <legend>Edita tu perfil</legend>
               <div class="field">
                 <%= f.label "Nombre" %>
@@ -30,6 +17,10 @@
               <div class="field">
                 <%= f.label "Pag web o Blog" %>
                 <%= f.text_field :pagweb %>
+              </div>
+              <div class="field">
+                <%=  f.label "Pequeña biografia" %>
+                <div><textarea maxlength="300" id="user_bio" name="user[bio]" class="span5" rows="5" placeholder="Escribe tus dudas!" value="<% @user.bio %>"></textarea></div>
               </div>
               <div class="field">
                 <%= f.label :programa %>

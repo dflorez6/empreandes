@@ -17,8 +17,8 @@
                 <img src="<%= asset_path( 'default_profile.jpg' ) %>" class="img-polaroid">
             <%end%>
             <br><br>
-            <div class="span2"> <span class="label label-info"><i class="icon-tags" ></i>&nbsp &nbsp <%= @user.estado %></span></div>
-            <div class="span2"> <span class="label label-info"><i class="icon-tags" ></i>&nbsp &nbsp <%= @user.programa %> </span></div>
+            <div class="span2"> <span class="label label-info"><%= @user.estado %></span></div>
+            <div class="span2"> <span class="label label-info"><%= @user.programa %> </span></div>
           </div>
           <div class="span5">
                 <% if !@user.name %>
@@ -36,14 +36,13 @@
                 <% else %>
                     <p><b>*Usuario regular</b></p>
                 <%end %>
-                <h5><b>Email: </b><%= @user.email %></h5>
-                <br>
-                <h5>Bio:</h5>
-
+                <p><strong>Email: </strong><%= @user.email %></p>
+                <p><strong>Pagina web/blog: </strong><a href="<%= @user.pagweb %>" target="_blank"><%= @user.pagweb %></a> </p>
+                <p><strong>Bio:</strong> </p>
                 <% if !@user.bio%>
                     <p>Este usuario todavia no tiene biografia.</p>
                 <% else %>
-                    <p class="lead"> <%= @user.bio %> </p>
+                    <p align="justify"> <%= @user.bio %> </p>
                 <% end %>
 
             <div class="pull-left">
