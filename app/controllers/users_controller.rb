@@ -93,12 +93,12 @@ class UsersController < ApplicationController
   def myteam
   @user  = current_user
   @isMe = signed_in? && current_user.email== @user.email
-  @can = @user.estado!="Quiero emprender!"
+  @can = @user.blank? ? nil : @user.estado!="Quiero emprender!"
   if !@user.blank?
         @equipo = Equipo.find_by_user_id(@user.id)
-        @extra1 = User.find_by_email(@equipo.mail_user1)
-        @extra2 = User.find_by_email(@equipo.mail_user2)
-        @extra3 = User.find_by_email(@equipo.mail_user3)
+        @extra1 = @equipo.blank? ? nil: User.find_by_email(@equipo.mail_user1)
+        @extra2 = @equipo.blank? ? nil: User.find_by_email(@equipo.mail_user2)
+        @extra3 = @equipo.blank? ? nil: User.find_by_email(@equipo.mail_user3)
   end
     if params[:commit]=="Crear equipo"
        @user.has_team = true
