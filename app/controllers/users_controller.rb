@@ -96,6 +96,9 @@ class UsersController < ApplicationController
   @can = @user.estado!="Quiero emprender!"
   if !@user.blank?
         @equipo = Equipo.find_by_user_id(@user.id)
+        @extra1 = User.find_by_email(@equipo.mail_user1)
+        @extra2 = User.find_by_email(@equipo.mail_user2)
+        @extra3 = User.find_by_email(@equipo.mail_user3)
   end
     if params[:commit]=="Crear equipo"
        @user.has_team = true

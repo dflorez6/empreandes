@@ -22,36 +22,119 @@
             <legend class="text-center">Equipo de <%= @user.name %></legend>
           <div class="span12">
           <div class="span12 well">
-            <br>
             <!-- Display the team-->
              <h2>
-               <%= (@equipo.name.blank? ? "<nombre equipo>": @equipo.name) %></h2>
-             <h3>Miembros:</h3>
-               <table class="table table-striped text-center">
-                 <tr>
-                   <th style="width: 50%">Nombre</th>
-                   <th style="width: 50%">Correo</th>
-                 </tr>
-                 <tr>
-                   <td><%= @user.name%></td>
-                   <td><%= @user.email %></td>
-                 </tr>
-                   <td>
-                     <%=  @equipo.user1 %></td>
-                   <td><%= @equipo.mail_user1 %></td>
-                 </tr>
-                 <tr>
-                     <td>
-                       <%=  @equipo.user2 %></td>
-                     <td><%= @equipo.mail_user2 %></td>
-                 </tr>
-                 <tr>
-                     <td>
-                       <%=  @equipo.user3 %></td>
-                     <td><%= @equipo.mail_user3 %></td>
-                 </tr>
+               <%= (@equipo.name.blank? ? "<nombre equipo>": @equipo.name) %>
+                <div class="pull-right"><%= @equipo.nit.blank? ? "": "NIT: "+@equipo.nit.to_s%></div> </h2>
 
-               </table></div>
+             <h3>Miembros:</h3>
+            <div class="span10 offset1 well well-small">
+              <div class="pull-left">
+                <% if !@user.fb_image_link.blank? %>
+                    <img src="<%=@user.fb_image_link.split("=")[0] << "=square"%>" class="img-rounded">
+                <% else %>
+                    <img src="<%=asset_path( 'default_profile_mini.png' )%>" class="img-rounded">
+                <% end %>
+              </div>
+              <div class="span3">
+                <h4><%= @user.name %> </h4>
+              </div>
+              <div class="span3">
+                <a class="label label-info"><%= @user.estado %></a>
+                <a class="label label-success"><%= @user.programa %> </a>
+              </div>
+              <div class="span2 pull-right">
+                <%= link_to user_path(@user),:class=>"btn btn-inverse" do %>
+                    <i class="icon-eye-open icon-white"></i>Ver usuario
+                <% end %>
+              </div>
+            </div>
+            <div class="span10 offset1 well well-small">
+              <div class="pull-left">
+                <% if !@extra1.blank? && !@extra1.fb_image_link.blank? %>
+                    <img src="<%=@extra1.fb_image_link.split("=")[0] << "=square"%>" class="img-rounded">
+                <% else %>
+                    <img src="<%=asset_path( 'default_profile_mini.png' )%>" class="img-rounded">
+                <% end %>
+              </div>
+              <div class="span3">
+                <h4><%= @extra1.blank? ? @equipo.user1 : @extra1.name %> </h4>
+                <% if @extra1.blank? %>
+                    <%= @equipo.mail_user1 %>
+                <% end %>
+              </div>
+              <div class="span3">
+                <a class="label label-info"><%= @extra1.blank? ? "unknown" : @extra1.estado %></a>
+                <a class="label label-success"><%= @extra1.blank? ? "unknown" :@extra1.programa %> </a>
+              </div>
+              <div class="span2 pull-right">
+                <% if !@extra1.blank? %>
+                    <%= link_to user_path(@extra1),:class=>"btn btn-inverse" do %>
+                        <i class="icon-eye-open icon-white"></i>Ver usuario
+                    <% end %>
+                <% else %>
+                    <strong>*Correo no registrado en el sistema.</strong>
+                <% end %>
+              </div>
+
+            </div>
+            <div class="span10 offset1 well well-small">
+              <div class="pull-left">
+                <% if !@extra2.blank? && !@extra2.fb_image_link.blank? %>
+                    <img src="<%=@extra2.fb_image_link.split("=")[0] << "=square"%>" class="img-rounded">
+                <% else %>
+                    <img src="<%=asset_path( 'default_profile_mini.png' )%>" class="img-rounded">
+                <% end %>
+              </div>
+              <div class="span3">
+                <h4><%= @extra2.blank? ? @equipo.user2 : @extra2.name %> </h4>
+                <% if @extra2.blank? %>
+                   <h4><%= @equipo.mail_user2 %></h4>
+                <% end %>
+              </div>
+              <div class="span3">
+                <a class="label label-info"><%= @extra2.blank? ? "unknown" : @extra2.estado %></a>
+                <a class="label label-success"><%= @extra2.blank? ? "unknown" :@extra2.programa %> </a>
+              </div>
+              <div class="span2 pull-right">
+                <% if !@extra2.blank? %>
+                    <%= link_to user_path(@extra2),:class=>"btn btn-inverse" do %>
+                        <i class="icon-eye-open icon-white"></i>Ver usuario
+                    <% end %>
+                <% else %>
+                    <strong>*Correo no registrado en el sistema.</strong>
+                <% end %>
+              </div>
+            </div>
+            <div class="span10 offset1 well well-small">
+              <div class="pull-left">
+                <% if !@extra3.blank? && !@extra3.fb_image_link.blank? %>
+                    <img src="<%=@extra3.fb_image_link.split("=")[0] << "=square"%>" class="img-rounded">
+                <% else %>
+                    <img src="<%=asset_path( 'default_profile_mini.png' )%>" class="img-rounded">
+                <% end %>
+              </div>
+              <div class="span3">
+                <h4><%= @extra3.blank? ? @equipo.user3 : @extra3.name %> </h4>
+                <% if @extra3.blank? %>
+                    <h4><%= @equipo.mail_user3 %></h4>
+                <% end %>
+              </div>
+              <div class="span3">
+                <a class="label label-info"><%= @extra3.blank? ? "unknown" : @extra3.estado %></a>
+                <a class="label label-success"><%= @extra3.blank? ? "unknown" :@extra3.programa %> </a>
+              </div>
+                  <div class="span2 pull-right">
+                    <% if !@extra3.blank? %>
+                    <%= link_to user_path(@extra3),:class=>"btn btn-inverse" do %>
+                        <i class="icon-eye-open icon-white"></i>Ver usuario
+                    <% end %>
+                    <% else %>
+                        <strong>*Correo no registrado en el sistema.</strong>
+                    <% end %>
+                  </div>
+            </div>
+           </div>
 
             <div class="span12 well">
               <h3>Edita tu equipo</h3>
