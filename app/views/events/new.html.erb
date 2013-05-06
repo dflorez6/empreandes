@@ -1,0 +1,9 @@
+<br><br><div class="container">
+  <% if !is_admin? %>
+      <div class="span8 offset1 well">
+        <p class="lead text-center">Solos los usuarios admin tienen permiso para agregar eventos!<br>
+      </div>
+  <% else %>
+      <%= render 'form' %>
+  <% end %>
+</div>

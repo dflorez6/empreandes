@@ -1,0 +1,48 @@
+<% if is_admin? %>
+    <%= form_for(@event) do |f| %>
+        <br>
+        <div class="container">
+          <div class="row">
+            <h1>Crea un nuevo evento</h1>
+            <div class="span7 offset2 well">
+              <div class="field">
+                <%= f.label "Nombre" %>
+                <%= f.text_field :name %>
+              </div>
+              <div class="field">
+                <%=  f.label "Descripción (max 500)" %>
+                <div><textarea maxlength="500" id="event_desc" name="event[desc]" class="span5" rows="5" placeholder="Descripción del evento"><%= @event.desc %></textarea></div>
+              </div>
+
+                <div class="field">
+                  <%=  f.label "Empieza" %>
+                  <% if !@event.start_at.blank? %>
+                      <p>Antes: <%= @event.start_at.to_s%></p>
+                  <% end %>
+                  <input type="datetime-local" name="event[start_at]" id="event_start_at" value="<%= @event.start_at.to_s %>">
+                </div>
+              <div class="field">
+                <%=  f.label "Termina" %>
+                <% if !@event.end_at.blank? %>
+                    <p>Antes: <%= @event.end_at.to_s%></p>
+                <% end %>
+                <input type="datetime-local" name="event[end_at]" id="event_end_at" value="<%= @event.end_at %>" >
+              </div>
+
+              <div class="actions">
+                <%= f.submit :class=>"btn btn-primary"  %>
+              </div>
+
+          </div>
+        </div></div>
+
+    <% end %>
+<% else %>
+    <div class="container">
+      <div class="row">
+        <div class="span8 offset1 well">
+          <p><strong>Acceso prohibido.</strong> Solo puedes editr tu propio perfil, no el de alguien mas.</p>
+        </div>
+      </div>
+    </div>
+<% end %>

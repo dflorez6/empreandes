@@ -169,4 +169,8 @@ class StaticsController < ApplicationController
 
   end
 
+  def calendar
+
+  end
+
 end

@@ -1,5 +1,9 @@
 ANEU::Application.routes.draw do
+  match '/calendar(/:year(/:month))' => 'calendar#index', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
+
   resources :users
+
+  resources :events
 
 
   # The priority is based upon order of creation:
@@ -75,4 +79,7 @@ ANEU::Application.routes.draw do
   match "/concurso_modelos" => "statics#concurso_modelos"
 
   match "/myteam" => "users#myteam"
+
+  match "/events" => "calendar#index"
+
 end

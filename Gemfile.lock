@@ -40,6 +40,7 @@ GEM
       execjs
     coffee-script-source (1.6.2)
     erubis (2.7.0)
+    event-calendar (2.3.3)
     execjs (1.4.0)
       multi_json (~> 1.0)
     faraday (0.8.7)
@@ -131,6 +132,7 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass
   coffee-rails (~> 3.2.1)
+  event-calendar
   jquery-rails
   net-ldap
   omniauth

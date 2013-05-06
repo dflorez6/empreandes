@@ -1,0 +1,10 @@
+<!-- Probably move the stylesheet to you layout. Also make sure you include the javascript. -->
+<%= stylesheet_link_tag "event_calendar" %>
+<title>ANEU - Agenda</title>
+<br><br>
+<div class="container">
+  <legend><div class="pull-right"><button class="btn btn-primary" onclick="window.location.href='/events'" type="button">Lista de eventos</button> </div>
+    <h1>Agenda</h1></legend>
+
+  <%= raw(event_calendar) %>
+</div>

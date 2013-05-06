@@ -1,0 +1,24 @@
+<br><br><div class="container">
+  <legend><h1>Evento: <%= @event.name %></h1></legend>
+   <div class="row">
+      <div class="span7">
+      <div class="span7"> <br><h2>Descripción:</h2>
+      <p><%= @event.desc %></p></div>
+       <br><br>
+        <div class="span7">
+          <div class="text-left"> <div class="pull-left"><h2>Desde:</h2><%= @event.start_at %></div>
+            <div class="pull-right"><h2>Hasta:</h2><%= @event.end_at %></div></div>
+
+        </div>
+
+      <% if is_admin? %>
+           <div class="span5">  <br><br>
+                <div class="span2"> <%= link_to 'Edit', edit_event_path(@event), :class=>"btn btn-primary btn-block"%></div>
+
+                <div class="span2"> <%= link_to 'Destroy', @event, method: :delete, data: { confirm: 'Seguro?' }, :class =>"btn btn-danger btn-block"%></div>
+
+           </div>
+      <% end %>
+      </div>
+   </div>
+</div>

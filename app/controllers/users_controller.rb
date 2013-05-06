@@ -38,12 +38,14 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
+    @isMe = signed_in? && current_user.email== @user.email
   end
 
   # POST /users
   # POST /users.json
   def create
     @user = User.new(params[:user])
+    @user.estado = "Quiero emprender!"
 
     respond_to do |format|
       if @user.save
@@ -71,6 +73,7 @@ class UsersController < ApplicationController
             format.html { redirect_to @user, notice: 'Tu informacion ha sido actualizada.' }
             format.json { head :no_content }
           else
+          sign_in(@user)
             format.html { render action: "edit", notice: 'whut' }
             format.json { render json: @user.errors, status: :unprocessable_entity }
           end

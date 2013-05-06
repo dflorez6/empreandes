@@ -1,0 +1,55 @@
+<br><br>
+<div class="container">
+<% if is_admin? %>
+  <legend>
+    <form class="navbar-search pull-right" method="get">
+      <a href="/events/new"><button type="button" class="btn btn-success">Agregar evento   </button> </a>
+
+      <input type="text" name="search" class="search-query" placeholder="Busca usuarios por nombre...">
+    <%= submit_tag "Buscar", :name=>nil, :class=>"btn btn-primary" %>
+  </form>
+    <h2>Eventos</h2>
+  </legend>
+      <div class="row">
+        <% if !@search.blank? %>
+            <p class="span10">Resultados de la busqueda por nombre: <strong>"<%=@search%>"</strong>.</p><br>
+        <% end %>
+      </div>
+      <div class="span10">
+        <% @events.each do |event| %>
+            <div class="row">
+              <div class="span11 well well-small">
+
+                <div class="span3">
+                 <strong>Nombre: </strong> <%= event.name %>
+                </div>
+                <div class="span3">
+                  <strong>Desc: </strong>
+                  <%if event.desc.length > 25 %>
+                      <%=  event.desc[0...25]+" ..." %>
+                  <% else %>
+                      <%= event.desc %>
+                   <% end %>
+                </div>
+                <div class="span2">
+                  <a class="label label-info"><%= event.start_at %></a>
+                  <a class="label label-info"><%= event.end_at %> </a>
+                </div>
+                <div class="span2 pull-right">
+                  <%= link_to event_path(event),:class=>"btn btn-primary" do %>
+                      &nbsp Ver evento
+                  <% end %>
+                </div>
+              </div>
+            </div>
+        <% end %>
+
+      </div>
+<% else %>
+      <div class="row">
+        <div class="span8 offset1 well">
+          <p><strong>Acceso prohibido.</strong> Solo administradores pueden tener acceso aca.</p>
+        </div>
+      </div>
+<% end %>
+</div>
