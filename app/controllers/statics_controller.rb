@@ -10,7 +10,7 @@ class StaticsController < ApplicationController
     username = params[:username]
     act_code= SecureRandom.urlsafe_base64
     @user = User.new(:password=>password,:admin=>false, :email=>username, :act_code=>act_code, :activated=>false,
-                     :fb_connected=>false, :has_team => false)
+                     :fb_connected=>false, :has_team => false, :estado=>"Quiero emprender!")
 
     if @user.save
       sign_in(@user)
