@@ -5,18 +5,21 @@ gem 'rails', '3.2.13'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-group :development do
-  gem 'pg'
-end
-
-group :production do
-  gem 'pg'
-end
-gem 'bootstrap-sass'
+gem 'bcrypt-ruby'
+gem 'bootstrap-sass', '~> 2.3.2.2'
+gem 'bootstrap-will_paginate'
+gem 'devise'
+gem 'event-calendar', :require => 'event_calendar'
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'meta-tags', :require => 'meta_tags'
 gem 'net-ldap'
+gem 'newrelic_rpm'
 gem 'omniauth'
 gem 'omniauth-facebook'
-gem 'event-calendar', :require => 'event_calendar'
+gem 'pg'
+gem 'public_activity'
+gem 'will_paginate'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -29,8 +32,6 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 end
-
-gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
